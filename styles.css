@@ -178,3 +178,31 @@ footer img {
     margin: 0 auto;
 }
 
+/* Existing CSS content */
+
+/* Custom confirmation dialog styles */
+#confirmationDialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 2px solid #333;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+
+#confirmationDialog[hidden] {
+    display: none;
+}
+
+#confirmationDialog h2 {
+    margin-top: 0;
+}
+
+#confirmationDialog button {
+    margin: 10px 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+}

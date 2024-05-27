@@ -39,11 +39,13 @@
                 <p>A continuación, puedes ver una parte de un episodio de pucca en dos maneras:</p>
                 <section>
                     <h3>Pucca: El mejor cumpleaños (Subtitulado)</h3>
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/bzX137bfY9c?si=Ff8hLn-crCAFuxx4" frameborder="0" allowfullscreen title="Capitulo de pucca subtitulado"></iframe>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/bzX137bfY9c?si=Ff8hLn-crCAFuxx4" frameborder="0"
+                     allowfullscreen title="Capitulo de pucca subtitulado"></iframe>
                 </section>
                 <section>
                     <h3>Pucca: El mejor cumpleaños (Audio descriptivo)</h3>
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/k5WfQeM7aIk?si=SYWd1wkPkYSyGa7r" frameborder="0" allowfullscreen title="Capitulo de pucca con audio descriptivo"></iframe>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/k5WfQeM7aIk?si=SYWd1wkPkYSyGa7r" frameborder="0" 
+                    allowfullscreen title="Capitulo de pucca con audio descriptivo"></iframe>
                 </section>
             </section>
 
@@ -57,7 +59,9 @@
                 <p>Con más de 30 temporadas y cientos de episodios, Los Simpson continúa siendo una fuerza cultural, influenciando la comedia y la televisión en general.</p>
                 </section>
                 <figure>
-                <img src="inforamtiva.png" alt="Gráfico circular con porcentajes que indican el personaje principal favorito de los espectadores del programa. Homero Simpson tiene la mayor parte con el 82%, seguido de Bart con el 8%, Lisa con el 4%, Maggie con el 2% y Marge también con el 4%.">
+                <img src="inforamtiva.png" alt="Gráfico circular con porcentajes que indican el personaje principal 
+                favorito de los espectadores del programa. Homero Simpson tiene la mayor parte con el 82%, seguido de Bart con el 8%, 
+                Lisa con el 4%, Maggie con el 2% y Marge también con el 4%.">
             </figure>
             </section>
 
@@ -135,9 +139,18 @@
                 <label for="mensaje">Mensaje:</label>
                 <textarea id="mensaje" name="mensaje" required aria-required="true"></textarea>
 
-                <button type="submit">Enviar</button>
+                <button type="submit" id="btn">Enviar</button>
             </form>
         </section>
+
+        <div id="confirmationDialog" role="alertdialog" aria-labelledby="dialogTitle" aria-describedby="dialogDescription" hidden>
+            <div>
+                <h2 id="dialogTitle">Confirmación de Envío</h2>
+                <p id="dialogDescription">¿Estás seguro de que deseas enviar este formulario?</p>
+                <button id="confirmYes">Sí</button>
+                <button id="confirmNo">No</button>
+            </div>
+        </div>
     </main>
 
     <footer>
@@ -145,6 +158,30 @@
         <p>&copy; 2023 El Mundo de los Dibujos Animados</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+document.addEventListener('DOMContentLoaded', function () {
+    const btn = document.getElementById('btn');
+    const dialog = document.getElementById('confirmationDialog');
+    const confirmYes = document.getElementById('confirmYes');
+    const confirmNo = document.getElementById('confirmNo');
+
+    btn.addEventListener('click', function (event) {
+        event.preventDefault();
+        dialog.hidden = false;
+       document.getElementById("dialogTitle").focus();
+    });
+
+    confirmYes.addEventListener('click', function () {
+        dialog.hidden = true;
+        form.submit();
+    });
+
+    confirmNo.addEventListener('click', function () {
+        dialog.hidden = true;
+        form.querySelector('button[type="submit"]').focus();
+    });
+});
+
+    </script>
 </body>
 </html>
